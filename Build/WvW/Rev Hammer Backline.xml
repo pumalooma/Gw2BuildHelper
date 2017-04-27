@@ -1,0 +1,5 @@
+<Build profession="Revenant">
+  <spec name="Devastation" traits="3,3,1" />
+  <spec name="Invocation" traits="1,2,1" />
+  <spec name="Herald" traits="2,2,1" />
+</Build>

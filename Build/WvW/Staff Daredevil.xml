@@ -1,0 +1,5 @@
+<Build profession="Thief">
+  <spec name="Critical Strikes" traits="1,2,1" />
+  <spec name="Trickery" traits="3,1,2" />
+  <spec name="Daredevil" traits="3,1,2" />
+</Build>

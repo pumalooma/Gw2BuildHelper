@@ -1,0 +1,74 @@
+<Localization>
+	<Profession name="Elementalist" id="ele">
+		<Specialization name="Fire" />
+		<Specialization name="Air" />
+		<Specialization name="Earth" />
+		<Specialization name="Water" />
+		<Specialization name="Arcane" />
+		<Specialization name="Temptest" />
+	</Profession>
+	<Profession name="Engineer" id="engi">
+		<Specialization name="Explosives" />
+		<Specialization name="Firearms" />
+		<Specialization name="Inventions" />
+		<Specialization name="Alchemy" />
+		<Specialization name="Tools" />
+		<Specialization name="Scrapper" />
+	</Profession>
+	<Profession name="Guardian" id="guard">
+		<Specialization name="Zeal" />
+		<Specialization name="Radiance" />
+		<Specialization name="Valor" />
+		<Specialization name="Honor" />
+		<Specialization name="Virtues" />
+		<Specialization name="Dragonhunter" />
+	</Profession>
+	<Profession name="Mesmer" id="mes">
+		<Specialization name="Domination" />
+		<Specialization name="Dueling" />
+		<Specialization name="Chaos" />
+		<Specialization name="Inspiration" />
+		<Specialization name="Illusions" />
+		<Specialization name="Chronomancer" />
+	</Profession>
+	<Profession name="Necromancer" id="necro">
+		<Specialization name="Spite" />
+		<Specialization name="Curses" />
+		<Specialization name="Death Magic" />
+		<Specialization name="Blood Magic" />
+		<Specialization name="Soul Reaping" />
+		<Specialization name="Reaper" />
+	</Profession>
+	<Profession name="Ranger" id="ranger">
+		<Specialization name="Marksmanship" />
+		<Specialization name="Skimishing" />
+		<Specialization name="Wilderness Survival" />
+		<Specialization name="Nature Magic" />
+		<Specialization name="Beastmastery" />
+		<Specialization name="Druid" />
+	</Profession>
+	<Profession name="Revenant" id="rev">
+		<Specialization name="Corruption" />
+		<Specialization name="Retribution" />
+		<Specialization name="Salvation" />
+		<Specialization name="Invocation" />
+		<Specialization name="Devastation" />
+		<Specialization name="Herald" />
+	</Profession>
+	<Profession name="Thief" id="thief">
+		<Specialization name="Deadly Arts" />
+		<Specialization name="Critical Strikes" />
+		<Specialization name="Shadow Arts" />
+		<Specialization name="Acrobatics" />
+		<Specialization name="Trickery" />
+		<Specialization name="Daredevil" />
+	</Profession>
+	<Profession name="Warrior" id="war">
+		<Specialization name="Strength" />
+		<Specialization name="Arms" />
+		<Specialization name="Defense" />
+		<Specialization name="Tactics" />
+		<Specialization name="Dicipline" />
+		<Specialization name="Berserker" />
+	</Profession>
+</Localization>

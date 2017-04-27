@@ -1,0 +1,5 @@
+<Build profession="Guardian">
+  <spec name="Zeal" traits="2,3,3" />
+  <spec name="Honor" traits="2,3,2" />
+  <spec name="Dragonhunter" traits="1,2,3" />
+</Build>

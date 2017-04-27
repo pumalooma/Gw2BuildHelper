@@ -1,0 +1,30 @@
+<Window x:Class="Gw2BuildHelper.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Gw2BuildHelper"
+        mc:Ignorable="d"
+        Title="GW2 Build Helper" Height="500" Width="280"
+        Topmost="True"
+        Closing="Window_Closing"
+        StateChanged="Window_StateChanged"
+        >
+    <Window.Resources>
+        <ContextMenu x:Key="cmButton">
+            <MenuItem Header="Interface Size Small" Click="cmUseSmallInterface" />
+            <MenuItem Header="Interface Size Normal" Click="cmUseNormalInterface" />
+            <Separator />
+            <MenuItem Header="Help" Click="cmShowHelp" />
+        </ContextMenu>
+    </Window.Resources>
+    <Grid>
+        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,5,5,5">
+            <TreeView x:Name="treeView" HorizontalAlignment="Stretch" Margin="0,0,0,25" VerticalAlignment="Stretch" SelectedItemChanged="treeView_SelectionChanged" MouseUp="treeView_MouseUp" />
+            <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Center" Margin="-80,0,0,0" VerticalAlignment="Bottom" Width="30" Click="btnAdd_Click"/>
+            <Button x:Name="btnEdit" Content="Edit" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Bottom" Width="30" Click="btnEdit_Click"/>
+            <Button x:Name="btnDelete" Content="Del" HorizontalAlignment="Center" Margin="80,0,0,0" VerticalAlignment="Bottom" Width="30" Click="btnDelete_Click"/>
+            <Button x:Name="btnSettings" Content="Settings" HorizontalAlignment="Right" Margin="0,0,0,0" VerticalAlignment="Bottom" Width="50" Click="btnSettings_Click" />
+        </Grid>
+    </Grid>
+</Window>

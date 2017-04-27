@@ -1,0 +1,5 @@
+<Build profession="Guardian">
+  <spec name="Radiance" traits="1,2,1" />
+  <spec name="Honor" traits="2,2,1" />
+  <spec name="Virtues" traits="3,2,1" />
+</Build>

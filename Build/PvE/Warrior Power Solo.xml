@@ -1,0 +1,5 @@
+<Build profession="Warrior">
+  <spec name="Strength" traits="2,2,1" />
+  <spec name="Defense" traits="1,1,1" />
+  <spec name="Berserker" traits="1,1,1" />
+</Build>

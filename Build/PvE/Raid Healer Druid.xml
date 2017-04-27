@@ -1,0 +1,5 @@
+<Build profession="Ranger">
+  <spec name="Skimishing" traits="1,1,1" />
+  <spec name="Nature Magic" traits="1,2,1" />
+  <spec name="Druid" traits="2,2,1" />
+</Build>

@@ -1,0 +1,42 @@
+<Window x:Class="Gw2BuildHelper.EditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Gw2BuildHelper"
+        mc:Ignorable="d"
+        Topmost="True"
+        Title="Edit" Height="300" Width="500"
+        Icon="./Icon.ico">
+    <Grid>
+        <Label x:Name="lblName" Content="Build Name" HorizontalAlignment="Left" Margin="6,5,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtName" HorizontalAlignment="Left" Height="23" Margin="83,8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+        <Label x:Name="lblClass" Content="Class" HorizontalAlignment="Left" Margin="36,36,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cmbClass" HorizontalAlignment="Left" Margin="83,40,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cmbClass_SelectionChanged"/>
+        <Label x:Name="lblSpec1" Content="Specialization 1" HorizontalAlignment="Left" Margin="12,102,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblSpec2" Content="Specialization 2" HorizontalAlignment="Left" Margin="12,128,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblSpec3" Content="Specialization 3" HorizontalAlignment="Left" Margin="12,159,0,0" VerticalAlignment="Top"/>
+
+        <Label x:Name="lblSpecName" Content="Name" HorizontalAlignment="Left" Margin="142,77,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblTrait1" Content="Trait 1" HorizontalAlignment="Left" Margin="244,77,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblTrait2" Content="Trait 2" HorizontalAlignment="Left" Margin="310,77,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblTrait3" Content="Trait 3" HorizontalAlignment="Left" Margin="373,77,0,0" VerticalAlignment="Top"/>
+
+        <ComboBox x:Name="cmbSpec1" HorizontalAlignment="Left" Margin="108,108,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cmbSpec2" HorizontalAlignment="Left" Margin="108,135,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cmbSpec3" HorizontalAlignment="Left" Margin="108,163,0,0" VerticalAlignment="Top" Width="120"/>
+
+        <ComboBox x:Name="cmbSpec1Trait1" HorizontalAlignment="Left" Margin="244,108,0,0" VerticalAlignment="Top" Width="49" SelectedIndex="0"/>
+        <ComboBox x:Name="cmbSpec1Trait2" HorizontalAlignment="Left" Margin="310,108,0,0" VerticalAlignment="Top" Width="49" SelectedIndex="0"/>
+        <ComboBox x:Name="cmbSpec1Trait3" HorizontalAlignment="Left" Margin="373,108,0,0" VerticalAlignment="Top" Width="49" SelectedIndex="0"/>
+        <ComboBox x:Name="cmbSpec2Trait1" HorizontalAlignment="Left" Margin="244,135,0,0" VerticalAlignment="Top" Width="49" SelectedIndex="0"/>
+        <ComboBox x:Name="cmbSpec2Trait2" HorizontalAlignment="Left" Margin="310,135,0,0" VerticalAlignment="Top" Width="49" SelectedIndex="0"/>
+        <ComboBox x:Name="cmbSpec2Trait3" HorizontalAlignment="Left" Margin="373,135,0,0" VerticalAlignment="Top" Width="49" SelectedIndex="0"/>
+        <ComboBox x:Name="cmbSpec3Trait1" HorizontalAlignment="Left" Margin="244,163,0,0" VerticalAlignment="Top" Width="49" SelectedIndex="0"/>
+        <ComboBox x:Name="cmbSpec3Trait2" HorizontalAlignment="Left" Margin="310,163,0,0" VerticalAlignment="Top" Width="49" SelectedIndex="0"/>
+        <ComboBox x:Name="cmbSpec3Trait3" HorizontalAlignment="Left" Margin="373,163,0,0" VerticalAlignment="Top" Width="49" SelectedIndex="0"/>
+
+        <Button x:Name="btnOk" Content="OK" HorizontalAlignment="Left" Margin="116,228,0,0" VerticalAlignment="Top" Width="75" Click="btnOk_Click"/>
+        <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="214,228,0,0" VerticalAlignment="Top" Width="75" Click="btnCancel_Click"/>
+    </Grid>
+</Window>
