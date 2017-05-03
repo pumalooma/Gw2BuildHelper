@@ -2,4 +2,4 @@
 A simple tool to Save/Load builds for GW2.
 
 Video example:
-https://www.youtube.com/watch?v=ZnQNeqy3LxQ
+https://youtu.be/aywMvyEADxU
