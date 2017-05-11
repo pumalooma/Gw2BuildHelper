@@ -1,0 +1,5 @@
+<Build profession="Ranger">
+  <spec name="Skimishing" traits="3,3,1" />
+  <spec name="Wilderness Survival" traits="3,1,3" />
+  <spec name="Beastmastery" traits="2,3,3" />
+</Build>
