@@ -1,3 +1,4 @@
+using MumbleLink_CSharp_GW2;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -47,6 +48,20 @@ namespace Gw2BuildHelper {
             string[] files = Directory.GetFiles(rootFolder, "*.xml", SearchOption.AllDirectories);
 
             TreeViewUtils.LoadFileList(treeView, rootFolder, files);
+
+            var link = new GW2Link();
+            
+            var identity = link.GetIdentity();
+
+            if (identity != null) {
+                var item = TreeViewUtils.FindChild(treeView.Items, identity.Profession.ToString());
+                if (item != null) {
+                    item.IsExpanded = true;
+                    item.IsSelected = true;
+                }
+            }
+
+            link.Dispose();
         }
 
         public void SelectBuild(string filePath) {
@@ -97,9 +112,19 @@ namespace Gw2BuildHelper {
         }
 
         private void btnAdd_Click (object sender, RoutedEventArgs e) {
-            TreeViewUtils.ClearTreeViewSelection(treeView);
+            string buildName = TreeViewUtils.GetTreeViewItemPath(treeView, true);
 
-            var edit = new EditWindow("New Build");
+			if(buildName == null)
+				buildName = "";
+
+			TreeViewUtils.ClearTreeViewSelection(treeView);
+
+            if (string.IsNullOrEmpty(buildName))
+                buildName = "New Build";
+            else
+                buildName += (buildName.Length==0 || buildName.EndsWith("\\") ? "New Build" : "New");
+            
+            var edit = new EditWindow(buildName);
             edit.Show();
         }
 

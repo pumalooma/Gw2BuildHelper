@@ -137,6 +137,16 @@
   <ItemGroup>
     <None Include="Resources\HeroPanelSmall.bmp" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="MumbleLink-CSharp-GW2\MumbleLink-CSharp-GW2.csproj">
+      <Project>{8a8d6dc7-81e3-4140-a6ab-25545220311c}</Project>
+      <Name>MumbleLink-CSharp-GW2</Name>
+    </ProjectReference>
+    <ProjectReference Include="MumbleLink-CSharp\MumbleLink-CSharp.csproj">
+      <Project>{f7d52e49-75c2-4578-820f-1b03e5e05e4f}</Project>
+      <Name>MumbleLink-CSharp</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

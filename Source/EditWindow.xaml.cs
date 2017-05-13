@@ -17,7 +17,7 @@ namespace Gw2BuildHelper {
 
             var build = Build.LoadBuild(buildName + ".xml");
 
-            var traits = new string[] { "1", "2", "3" };
+            var traits = new string[] { "", "1", "2", "3" };
 
             cmbSpec1Trait1.ItemsSource = traits;
             cmbSpec1Trait2.ItemsSource = traits;
@@ -59,6 +59,10 @@ namespace Gw2BuildHelper {
             cmbSpec2.Items.Clear();
             cmbSpec3.Items.Clear();
 
+            cmbSpec1.Items.Add("");
+            cmbSpec2.Items.Add("");
+            cmbSpec3.Items.Add("");
+
             var profession = Localization.Instance.GetProfession(newClass);
             for (int index = 0; index < profession.Specializations.Length; ++index) {
                 var spec = profession.Specializations[index];
@@ -70,9 +74,9 @@ namespace Gw2BuildHelper {
             }
 
             if (newClass != className) {
-                cmbSpec1.SelectedIndex = 0;
-                cmbSpec2.SelectedIndex = 1;
-                cmbSpec3.SelectedIndex = profession.Specializations.Length - 1;
+                cmbSpec1.SelectedIndex = 1;
+                cmbSpec2.SelectedIndex = 2;
+                cmbSpec3.SelectedIndex = profession.Specializations.Length;
 
                 className = newClass;
             }
@@ -96,9 +100,9 @@ namespace Gw2BuildHelper {
             build.Specializations[0].name = cmbSpec1.SelectedValue as string;
             build.Specializations[1].name = cmbSpec2.SelectedValue as string;
             build.Specializations[2].name = cmbSpec3.SelectedValue as string;
-            build.Specializations[0].traits = string.Format("{0},{1},{2}", cmbSpec1Trait1.SelectedIndex + 1, cmbSpec1Trait2.SelectedIndex + 1, cmbSpec1Trait3.SelectedIndex + 1);
-            build.Specializations[1].traits = string.Format("{0},{1},{2}", cmbSpec2Trait1.SelectedIndex + 1, cmbSpec2Trait2.SelectedIndex + 1, cmbSpec2Trait3.SelectedIndex + 1);
-            build.Specializations[2].traits = string.Format("{0},{1},{2}", cmbSpec3Trait1.SelectedIndex + 1, cmbSpec3Trait2.SelectedIndex + 1, cmbSpec3Trait3.SelectedIndex + 1);
+            build.Specializations[0].traits = string.Format("{0},{1},{2}", cmbSpec1Trait1.SelectedIndex, cmbSpec1Trait2.SelectedIndex, cmbSpec1Trait3.SelectedIndex);
+            build.Specializations[1].traits = string.Format("{0},{1},{2}", cmbSpec2Trait1.SelectedIndex, cmbSpec2Trait2.SelectedIndex, cmbSpec2Trait3.SelectedIndex);
+            build.Specializations[2].traits = string.Format("{0},{1},{2}", cmbSpec3Trait1.SelectedIndex, cmbSpec3Trait2.SelectedIndex, cmbSpec3Trait3.SelectedIndex);
 
             if (Build.SaveBuild(build, fileName)) {
                 Close();

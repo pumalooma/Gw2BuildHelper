@@ -43,7 +43,7 @@ public static class TreeViewUtils {
             for (int jj = 0; jj < parts.Length; ++jj) {
                 string text = parts[jj];
 
-                var image = new System.Windows.Controls.Image();
+                var image = new Image();
                 image.Source = jj + 1 >= parts.Length ? m_fileImage : m_folderImage;
                 image.Width = 16;
                 image.Height = 16;
@@ -56,7 +56,7 @@ public static class TreeViewUtils {
                 stack.Children.Add(image);
                 stack.Children.Add(lbl);
 
-                var item = new TreeViewItem() { Header = stack, IsExpanded = true };
+                var item = new TreeViewItem() { Header = stack, IsExpanded = false };
 
                 parent = UseOrAddToParent(parent == null ? treeView.Items : parent.Items, item);
             }
@@ -84,13 +84,17 @@ public static class TreeViewUtils {
         return newItem;
     }
 
-    public static string GetTreeViewItemPath (TreeView treeView) {
+    public static string GetTreeViewItemPath (TreeView treeView, bool allowParents = false) {
 
         string name = null;
 
         var item = treeView.SelectedItem as TreeViewItem;
 
-        if (!item.Items.IsEmpty)
+        if (item == null)
+            return null;
+
+        bool hasChildren = !item.Items.IsEmpty;
+        if (!allowParents && hasChildren)
             return null;
 
         while (item != null) {
@@ -104,6 +108,9 @@ public static class TreeViewUtils {
                 name = text + "\\" + name;
             item = item.Parent as TreeViewItem;
         }
+
+        if (hasChildren)
+            name += "\\";
 
         return name;
     }

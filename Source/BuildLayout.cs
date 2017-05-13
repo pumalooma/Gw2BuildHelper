@@ -25,7 +25,7 @@ public class Build {
             string[] values = spec.traits.Split(new char[] { ',' });
             spec.traitValues = new int[3];
             for (int ii = 0; ii < 3; ++ii)
-                spec.traitValues[ii] = Convert.ToInt32(values[ii]) - 1;
+                spec.traitValues[ii] = Convert.ToInt32(values[ii]);
 
             var profession = Localization.Instance.GetProfession(build.profession);
             spec.specIndex = profession.GetSpecIndex(spec.name);

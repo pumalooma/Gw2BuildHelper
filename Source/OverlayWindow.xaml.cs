@@ -41,11 +41,21 @@ namespace Gw2BuildHelper {
 
             for (int specIndex = 0; specIndex < 3; ++specIndex) {
 
+                int correctSpecIndex = MainWindow.instance.m_CurrentBuild.Specializations[specIndex].specIndex;
+
+                if (correctSpecIndex == -1)
+                    continue;
+
                 if (IsUsingCorrectSpec(bmpScreenCapture, p, specIndex))
                 {
 
                     for (int traitIndex = 0; traitIndex < 3; ++traitIndex) {
 
+                        int traitValue = MainWindow.instance.m_CurrentBuild.Specializations[specIndex].traitValues[traitIndex] - 1;
+
+                        if (traitValue == -1)
+                            continue;
+                        
                         if (rectangles.Children.Count <= rectCount)
                             rectangles.Children.Add(CreateRectangle());
 
@@ -54,7 +64,6 @@ namespace Gw2BuildHelper {
                         rectangle.Width = hp.TraitIconSize;
                         rectangle.Height = hp.TraitIconSize;
 
-                        int traitValue = MainWindow.instance.m_CurrentBuild.Specializations[specIndex].traitValues[traitIndex];
                         bool correctTrait = IsUsingCorrectTrait(bmpScreenCapture, p, specIndex, traitIndex, traitValue);
                         rectangle.Stroke = correctTrait ? System.Windows.Media.Brushes.Green : System.Windows.Media.Brushes.Red;
 
@@ -93,8 +102,6 @@ namespace Gw2BuildHelper {
                         var circle = circles.Children[circleCount++] as Ellipse;
 
                         circle.Width = circle.Height = hp.SpecCorrectChoiceIconSize;
-
-                        int correctSpecIndex = MainWindow.instance.m_CurrentBuild.Specializations[specIndex].specIndex;
 
                         x = hp.SpecCorrectChoiceOffsetX + (correctSpecIndex / 3) * hp.SpecCorrectChoiceSpacingX;
                         y = hp.SpecCorrectChoiceOffsetY + (correctSpecIndex % 3) * hp.SpecCorrectChoiceSpacingY;
