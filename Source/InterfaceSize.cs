@@ -59,7 +59,16 @@ public class InterfaceSize
 	
 	public static InterfaceSize LoadInterfaceSize()
 	{
-		var content = File.ReadAllText( Config.Instance.InterfaceSize==1 ? "InterfaceNormal.txt" : "InterfaceSmall.txt");
+		string fileName = "InterfaceSmall.txt";
+
+		if(Config.Instance.InterfaceSize == 1)
+			fileName = "InterfaceNormal.txt";
+		else if(Config.Instance.InterfaceSize == 2)
+			fileName = "InterfaceLarge.txt";
+		else if(Config.Instance.InterfaceSize == 3)
+			fileName = "InterfaceXLarge.txt";
+
+		var content = File.ReadAllText(fileName);
 		var sr = new StringReader(content);
 		var xs = new XmlSerializer(typeof(InterfaceSize));
 

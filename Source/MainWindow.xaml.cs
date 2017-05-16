@@ -102,9 +102,18 @@ namespace Gw2BuildHelper {
                 return;
             }
 
-            //bmpScreenCapture.Save("test.bmp", System.Drawing.Imaging.ImageFormat.Bmp);
+			//bmpScreenCapture.Save("test.bmp", System.Drawing.Imaging.ImageFormat.Bmp);
 
-            Bitmap heroPanel = Config.Instance.InterfaceSize == 1 ? Properties.Resources.HeroPanelNormal : Properties.Resources.HeroPanelSmall;
+
+			Bitmap heroPanel = Properties.Resources.HeroPanelSmall;
+
+			if(Config.Instance.InterfaceSize == 1)
+				heroPanel = Properties.Resources.HeroPanelNormal;
+			else if(Config.Instance.InterfaceSize == 2)
+				heroPanel = Properties.Resources.HeroPanelNormal;
+			else if(Config.Instance.InterfaceSize == 3)
+				heroPanel = Properties.Resources.HeroPanelNormal;
+			
             var location = ImageUtils.SearchBitmap(heroPanel, bmpScreenCapture, 0.2);
 
             if (location.Width == 0) {
@@ -184,6 +193,18 @@ namespace Gw2BuildHelper {
             Config.Instance.SaveConfig();
         }
 
+		private void cmUseLargeInterface(object sender, RoutedEventArgs e) {
+			Config.Instance.InterfaceSize = 2;
+			m_Overlay.hp = InterfaceSize.LoadInterfaceSize();
+			Config.Instance.SaveConfig();
+		}
+
+		private void cmUseXLargeInterface(object sender, RoutedEventArgs e) {
+			Config.Instance.InterfaceSize = 3;
+			m_Overlay.hp = InterfaceSize.LoadInterfaceSize();
+			Config.Instance.SaveConfig();
+		}
+
 		private void cmToggleGameModeCategories(object sender, RoutedEventArgs e) {
 			Config.Instance.ShowCategories = !Config.Instance.ShowCategories;
             Config.Instance.SaveConfig();
@@ -208,7 +229,17 @@ namespace Gw2BuildHelper {
                 var profession = Localization.Instance.GetProfession(m_CurrentBuild.profession);
                 for (int ii = 0; ii < 3; ++ii) {
                     int specIndex = m_CurrentBuild.Specializations[ii].specIndex;
-                    string filePath = string.Format("Specializations{0}/{1}{2}.bmp", Config.Instance.InterfaceSize == 0 ? "Small" : "Normal", profession.id, specIndex);
+
+					string interfaceName = "Small";
+					
+					if(Config.Instance.InterfaceSize == 1)
+						interfaceName = "Normal";
+					else if(Config.Instance.InterfaceSize == 2)
+						interfaceName = "Large";
+					else if(Config.Instance.InterfaceSize == 3)
+						interfaceName = "XLarge";
+					
+					string filePath = string.Format("Specializations{0}/{1}{2}.bmp", interfaceName, profession.id, specIndex);
 
 					if(m_bmpSpecializations[ii] != null)
 						m_bmpSpecializations[ii].Dispose();

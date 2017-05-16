@@ -14,6 +14,8 @@
         <ContextMenu x:Key="cmButton">
             <MenuItem Header="Interface Size Small" Click="cmUseSmallInterface" />
             <MenuItem Header="Interface Size Normal" Click="cmUseNormalInterface" />
+            <MenuItem Header="Interface Size Large" Click="cmUseLargeInterface" />
+            <MenuItem Header="Interface Size X-Large" Click="cmUseXLargeInterface" />
             <Separator />
             <MenuItem Header="Toggle Game-Mode Categories" Click="cmToggleGameModeCategories" />
             <Separator />
