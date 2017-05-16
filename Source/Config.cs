@@ -6,7 +6,9 @@ public class Config
 {
 	[XmlAttribute()]
 	public int InterfaceSize { get; set; }
-    [XmlAttribute()]
+	[XmlAttribute()]
+	public bool ShowCategories { get; set; }
+	[XmlAttribute()]
     public double WindowLeft { get; set; }
     [XmlAttribute()]
     public double WindowTop { get; set; }
@@ -34,6 +36,7 @@ public class Config
 
         instance = new Config();
         instance.InterfaceSize = 1;
+		instance.ShowCategories = true;
         return instance;
     }
 

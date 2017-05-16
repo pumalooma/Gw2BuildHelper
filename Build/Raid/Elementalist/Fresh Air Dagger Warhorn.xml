@@ -1,0 +1,5 @@
+<Build profession="Elementalist">
+  <spec name="Fire" traits="1,1,1" />
+  <spec name="Air" traits="3,2,2" />
+  <spec name="Temptest" traits="3,3,1" />
+</Build>

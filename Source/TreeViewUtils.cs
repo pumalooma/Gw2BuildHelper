@@ -24,7 +24,7 @@ public static class TreeViewUtils {
         m_fileImage.EndInit();
     }
 
-    public static void LoadFileList (TreeView treeView, string rootFolder, string[] files) {
+    public static void LoadFileList (TreeView treeView, string rootFolder, string[] files, string fileNamePrefix = null) {
 
         InitTreeIcons();
 
@@ -43,15 +43,21 @@ public static class TreeViewUtils {
             for (int jj = 0; jj < parts.Length; ++jj) {
                 string text = parts[jj];
 
-                var image = new Image();
-                image.Source = jj + 1 >= parts.Length ? m_fileImage : m_folderImage;
+				bool isFile = jj + 1 >= parts.Length;
+
+				var image = new Image();
+                image.Source = isFile ? m_fileImage : m_folderImage;
                 image.Width = 16;
                 image.Height = 16;
+				
+				Label lbl = new Label();
 
-                Label lbl = new Label();
-                lbl.Content = text;
+				if(fileNamePrefix != null && isFile)
+					lbl.Content = fileNamePrefix + text;
+				else
+					lbl.Content = text;
 
-                StackPanel stack = new StackPanel();
+				StackPanel stack = new StackPanel();
                 stack.Orientation = Orientation.Horizontal;
                 stack.Children.Add(image);
                 stack.Children.Add(lbl);

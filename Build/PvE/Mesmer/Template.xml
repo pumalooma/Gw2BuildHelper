@@ -1,0 +1,5 @@
+<Build profession="Mesmer">
+  <spec name="Domination" traits="3,3,1" />
+  <spec name="Dueling" traits="1,2,1" />
+  <spec name="Chronomancer" traits="2,2,1" />
+</Build>

@@ -6,8 +6,6 @@ using System.IO;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Gw2BuildHelper {
     /// <summary>
@@ -21,7 +19,6 @@ namespace Gw2BuildHelper {
         
         private bool m_SearchForHeroPanel = true;
         private int m_RefreshWaitTime = 100;
-        //private bool m_snapToHeroPanel = false;
         public Bitmap[] m_bmpSpecializations = new Bitmap[3];
         
 		public static MainWindow instance;
@@ -45,23 +42,37 @@ namespace Gw2BuildHelper {
             treeView.Items.Clear();
             
             string rootFolder = Directory.GetCurrentDirectory().ToLower();
-            string[] files = Directory.GetFiles(rootFolder, "*.xml", SearchOption.AllDirectories);
-
-            TreeViewUtils.LoadFileList(treeView, rootFolder, files);
-
-            var link = new GW2Link();
             
-            var identity = link.GetIdentity();
+			if(Config.Instance.ShowCategories) {
+				string[] files = Directory.GetFiles(rootFolder, "*.xml", SearchOption.AllDirectories);
+				TreeViewUtils.LoadFileList(treeView, rootFolder, files);
+			}
+			else {
 
-            if (identity != null) {
-                var item = TreeViewUtils.FindChild(treeView.Items, identity.Profession.ToString());
-                if (item != null) {
-                    item.IsExpanded = true;
-                    item.IsSelected = true;
-                }
-            }
+				string[] gameModes = { "PvE", "PvP", "WvW", "Raid" };
 
-            link.Dispose();
+				foreach(var gameMode in gameModes) {
+					string topFolder = Path.Combine(rootFolder, gameMode.ToLower());
+                    string[] files = Directory.GetFiles(topFolder, "*.xml", SearchOption.AllDirectories);
+					TreeViewUtils.LoadFileList(treeView, topFolder, files, string.Format("({0}) ", gameMode));
+				}
+
+				var link = new GW2Link();
+
+				var identity = link.GetIdentity();
+
+				if(identity != null)
+				{
+					var item = TreeViewUtils.FindChild(treeView.Items, identity.Profession.ToString());
+					if(item != null)
+					{
+						item.IsExpanded = true;
+						item.IsSelected = true;
+					}
+				}
+
+				link.Dispose();
+			}	   
         }
 
         public void SelectBuild(string filePath) {
@@ -112,7 +123,10 @@ namespace Gw2BuildHelper {
         }
 
         private void btnAdd_Click (object sender, RoutedEventArgs e) {
-            string buildName = TreeViewUtils.GetTreeViewItemPath(treeView, true);
+            string buildName = GetBuildName(Config.Instance.ShowCategories);
+
+			if(!Config.Instance.ShowCategories && buildName == null)
+				return;
 
 			if(buildName == null)
 				buildName = "";
@@ -129,7 +143,7 @@ namespace Gw2BuildHelper {
         }
 
         private void btnEdit_Click (object sender, RoutedEventArgs e) {
-            string buildName = TreeViewUtils.GetTreeViewItemPath(treeView);
+            string buildName = GetBuildName();
             if (buildName != null) {
                 TreeViewUtils.ClearTreeViewSelection(treeView);
 
@@ -169,7 +183,15 @@ namespace Gw2BuildHelper {
 			m_Overlay.hp = InterfaceSize.LoadInterfaceSize();
             Config.Instance.SaveConfig();
         }
-        private void cmShowHelp (object sender, RoutedEventArgs e) {
+
+		private void cmToggleGameModeCategories(object sender, RoutedEventArgs e) {
+			Config.Instance.ShowCategories = !Config.Instance.ShowCategories;
+            Config.Instance.SaveConfig();
+
+			RefreshBuildList();
+        }
+
+		private void cmShowHelp (object sender, RoutedEventArgs e) {
             MessageBox.Show("No help yet, bro.", "Gw2 Build Helper", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
@@ -179,7 +201,7 @@ namespace Gw2BuildHelper {
                 return;
             }
 
-            m_BuildName = TreeViewUtils.GetTreeViewItemPath(treeView);
+			m_BuildName = GetBuildName();
 
             m_CurrentBuild = Build.LoadBuild(m_BuildName + ".xml");
             if (m_CurrentBuild != null) {
@@ -218,5 +240,21 @@ namespace Gw2BuildHelper {
             if (WindowState == WindowState.Minimized)
                 m_Overlay.Hide();
         }
-    }
+
+		private string GetBuildName (bool allowParents = false) {
+			string buildName = TreeViewUtils.GetTreeViewItemPath(treeView, allowParents);
+
+			if(buildName != null && !Config.Instance.ShowCategories)
+			{
+				string[] parts = buildName.Split(new char[] { '\\' });
+				int index = parts[1].IndexOf(") ");
+				string category = parts[1].Substring(1, index - 1);
+
+				buildName = Path.Combine(category, parts[0], parts[1].Substring(index + 2));
+			}
+
+			return buildName;
+		}
+
+	}
 }

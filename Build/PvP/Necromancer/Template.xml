@@ -1,0 +1,5 @@
+<Build profession="Necromancer">
+  <spec name="Spite" traits="3,3,1" />
+  <spec name="Curses" traits="1,2,1" />
+  <spec name="Reaper" traits="2,2,1" />
+</Build>

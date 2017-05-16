@@ -1,0 +1,5 @@
+<Build profession="Engineer">
+  <spec name="Explosives" traits="3,3,1" />
+  <spec name="Firearms" traits="1,2,1" />
+  <spec name="Scrapper" traits="2,2,1" />
+</Build>
