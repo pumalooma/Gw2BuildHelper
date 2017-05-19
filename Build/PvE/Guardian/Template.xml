@@ -1,5 +1,5 @@
 <Build profession="Guardian">
   <spec name="Zeal" traits="3,3,1" />
   <spec name="Radiance" traits="1,2,1" />
-  <spec name="Dragonhunter" traits="2,2,1" />
+  <spec name="Valor" traits="2,2,1" />
 </Build>

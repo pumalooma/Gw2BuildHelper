@@ -1,5 +1,5 @@
 <Localization>
-	<Profession name="Elementalist" id="ele">
+	<Profession name="Elementalist">
 		<Specialization name="Fire" />
 		<Specialization name="Air" />
 		<Specialization name="Earth" />
@@ -7,7 +7,7 @@
 		<Specialization name="Arcane" />
 		<Specialization name="Temptest" />
 	</Profession>
-	<Profession name="Engineer" id="engi">
+	<Profession name="Engineer">
 		<Specialization name="Explosives" />
 		<Specialization name="Firearms" />
 		<Specialization name="Inventions" />
@@ -15,7 +15,7 @@
 		<Specialization name="Tools" />
 		<Specialization name="Scrapper" />
 	</Profession>
-	<Profession name="Guardian" id="guard">
+	<Profession name="Guardian">
 		<Specialization name="Zeal" />
 		<Specialization name="Radiance" />
 		<Specialization name="Valor" />
@@ -23,7 +23,7 @@
 		<Specialization name="Virtues" />
 		<Specialization name="Dragonhunter" />
 	</Profession>
-	<Profession name="Mesmer" id="mes">
+	<Profession name="Mesmer">
 		<Specialization name="Domination" />
 		<Specialization name="Dueling" />
 		<Specialization name="Chaos" />
@@ -31,7 +31,7 @@
 		<Specialization name="Illusions" />
 		<Specialization name="Chronomancer" />
 	</Profession>
-	<Profession name="Necromancer" id="necro">
+	<Profession name="Necromancer">
 		<Specialization name="Spite" />
 		<Specialization name="Curses" />
 		<Specialization name="Death Magic" />
@@ -39,7 +39,7 @@
 		<Specialization name="Soul Reaping" />
 		<Specialization name="Reaper" />
 	</Profession>
-	<Profession name="Ranger" id="ranger">
+	<Profession name="Ranger">
 		<Specialization name="Marksmanship" />
 		<Specialization name="Skimishing" />
 		<Specialization name="Wilderness Survival" />
@@ -47,7 +47,7 @@
 		<Specialization name="Beastmastery" />
 		<Specialization name="Druid" />
 	</Profession>
-	<Profession name="Revenant" id="rev">
+	<Profession name="Revenant">
 		<Specialization name="Corruption" />
 		<Specialization name="Retribution" />
 		<Specialization name="Salvation" />
@@ -55,7 +55,7 @@
 		<Specialization name="Devastation" />
 		<Specialization name="Herald" />
 	</Profession>
-	<Profession name="Thief" id="thief">
+	<Profession name="Thief">
 		<Specialization name="Deadly Arts" />
 		<Specialization name="Critical Strikes" />
 		<Specialization name="Shadow Arts" />
@@ -63,7 +63,7 @@
 		<Specialization name="Trickery" />
 		<Specialization name="Daredevil" />
 	</Profession>
-	<Profession name="Warrior" id="war">
+	<Profession name="Warrior">
 		<Specialization name="Strength" />
 		<Specialization name="Arms" />
 		<Specialization name="Defense" />

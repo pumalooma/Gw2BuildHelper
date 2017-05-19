@@ -1,5 +1,5 @@
 <Build profession="Ranger">
   <spec name="Marksmanship" traits="3,3,1" />
   <spec name="Skimishing" traits="1,2,1" />
-  <spec name="Druid" traits="2,2,1" />
+  <spec name="Wilderness Survival" traits="2,2,1" />
 </Build>

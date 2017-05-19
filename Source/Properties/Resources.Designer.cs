@@ -83,6 +83,16 @@ namespace Gw2BuildHelper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap HeroPanelLarge {
+            get {
+                object obj = ResourceManager.GetObject("HeroPanelLarge", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap HeroPanelNormal {
             get {
                 object obj = ResourceManager.GetObject("HeroPanelNormal", resourceCulture);

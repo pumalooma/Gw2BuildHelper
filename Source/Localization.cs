@@ -30,12 +30,10 @@ public class Localization {
 }
 
 public class ProfessionDef {
-    [XmlAttributeAttribute()]
+    [XmlAttribute()]
     public string name { get; set; }
-    [XmlAttributeAttribute()]
-    public string id { get; set; }
 
-    [XmlElementAttribute("Specialization")]
+    [XmlElement("Specialization")]
 	public SpecializationDef[] Specializations { get; set; }
 
     public int GetSpecIndex(string specName) {

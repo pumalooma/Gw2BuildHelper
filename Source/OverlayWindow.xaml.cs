@@ -1,3 +1,4 @@
+using MumbleLink_CSharp_GW2;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -48,7 +49,6 @@ namespace Gw2BuildHelper {
 
                 if (IsUsingCorrectSpec(bmpScreenCapture, p, specIndex))
                 {
-
                     for (int traitIndex = 0; traitIndex < 3; ++traitIndex) {
 
                         int traitValue = MainWindow.instance.m_CurrentBuild.Specializations[specIndex].traitValues[traitIndex] - 1;
@@ -192,17 +192,23 @@ namespace Gw2BuildHelper {
         private int DebugSaveSourceImages (Bitmap bmpScreenCapture, System.Drawing.Point p) {
             int drawnRectangles = 0;
 
-            for (int ii = 0; ii < 3; ++ii) {
-                
-                
+			string professionName = "out";
+
+			var link = new GW2Link();
+			var identity = link.GetIdentity();
+			if(identity != null)
+				professionName = identity.Profession.ToString();
+			link.Dispose();
+
+			for (int ii = 0; ii < 3; ++ii) {
                 float x = hp.SpecSourceImageOffsetX;
                 float y = hp.SpecSourceImageOffsetY + ii * hp.SpecSourceImageSpacingY;
 
                 var rect = new RectangleF((float)p.X + x, (float)p.Y + y, hp.SpecSourceImageWidth, hp.SpecSourceImageHeight);
 
-                ///
+				///
 
-                /*if (rectangles.Children.Count <= ii)
+				/*if (rectangles.Children.Count <= ii)
                     rectangles.Children.Add(CreateRectangle());
 
                 var rectangle = rectangles.Children[ii] as System.Windows.Shapes.Rectangle;
@@ -212,12 +218,14 @@ namespace Gw2BuildHelper {
                 rectangle.Width = hp.SpecSourceImageWidth;
                 rectangle.Height = hp.SpecSourceImageHeight;
                 
-                rectangle.Margin = new Thickness(p.X + x, p.Y + y, 0.0f, 0.0f);
-                */
-                ///
+                rectangle.Margin = new Thickness(p.X + x, p.Y + y, 0.0f, 0.0f);*/
+
+				///
+
+				int index = MainWindow.instance.m_CurrentBuild.Specializations[ii].specIndex;
 
                 var bmp = bmpScreenCapture.Clone(rect, bmpScreenCapture.PixelFormat);
-                bmp.Save("out" + ii + ".bmp", System.Drawing.Imaging.ImageFormat.Bmp);
+                bmp.Save(professionName + index + ".bmp", System.Drawing.Imaging.ImageFormat.Bmp);
                 bmp.Dispose();
             }
 

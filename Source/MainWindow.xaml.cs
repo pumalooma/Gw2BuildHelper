@@ -110,7 +110,7 @@ namespace Gw2BuildHelper {
 			if(Config.Instance.InterfaceSize == 1)
 				heroPanel = Properties.Resources.HeroPanelNormal;
 			else if(Config.Instance.InterfaceSize == 2)
-				heroPanel = Properties.Resources.HeroPanelNormal;
+				heroPanel = Properties.Resources.HeroPanelLarge;
 			else if(Config.Instance.InterfaceSize == 3)
 				heroPanel = Properties.Resources.HeroPanelNormal;
 			
@@ -200,9 +200,10 @@ namespace Gw2BuildHelper {
 		}
 
 		private void cmUseXLargeInterface(object sender, RoutedEventArgs e) {
-			Config.Instance.InterfaceSize = 3;
-			m_Overlay.hp = InterfaceSize.LoadInterfaceSize();
-			Config.Instance.SaveConfig();
+			//Config.Instance.InterfaceSize = 3;
+			//m_Overlay.hp = InterfaceSize.LoadInterfaceSize();
+			//Config.Instance.SaveConfig();
+			MessageBox.Show("Sorry, X-Large is not supported right now, only Small, Normal and Large are.");
 		}
 
 		private void cmToggleGameModeCategories(object sender, RoutedEventArgs e) {
@@ -222,6 +223,9 @@ namespace Gw2BuildHelper {
                 return;
             }
 
+			// only doing this to make hotloading interface changes easier...
+			m_Overlay.hp = InterfaceSize.LoadInterfaceSize();
+
 			m_BuildName = GetBuildName();
 
             m_CurrentBuild = Build.LoadBuild(m_BuildName + ".xml");
@@ -239,7 +243,7 @@ namespace Gw2BuildHelper {
 					else if(Config.Instance.InterfaceSize == 3)
 						interfaceName = "XLarge";
 					
-					string filePath = string.Format("Specializations{0}/{1}{2}.bmp", interfaceName, profession.id, specIndex);
+					string filePath = string.Format("Specializations{0}/{1}{2}.bmp", interfaceName, profession.name, specIndex);
 
 					if(m_bmpSpecializations[ii] != null)
 						m_bmpSpecializations[ii].Dispose();

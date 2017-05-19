@@ -1,0 +1,33 @@
+<InterfaceSize
+	TraitOffsetX = "655.0"
+	TraitOffsetY = "326.0"
+	TraitSpacingX = "160.0"
+	TraitSpacingY = "152.0"
+	TraitIconSize = "45.0"
+	TraitChoiceSpacing = "47.0"
+
+	HeroPanelOffsetX = "-29"
+	HeroPanelOffsetY = "-3"
+	HeroPanelWidth = "950.0"
+	HeroPanelHeight = "250.0"
+	
+	SpecDropDownOffsetX = "350.0"
+	SpecDropDownOffsetY = "320.0"
+	SpecDropDownWidth = "30.0"
+	SpecDropDownHeight = "149.0"
+	SpecDropDownSpacingY = "153.0"
+	SpecDropDownMouseOverSizeX = "120"
+	
+	SpecCorrectChoiceOffsetX = "385.0"
+	SpecCorrectChoiceOffsetY = "320.0"
+	SpecCorrectChoiceSpacingX = "53.0"
+	SpecCorrectChoiceSpacingY = "58.0"
+	SpecCorrectChoiceIconSize = "47.0"
+    
+	SpecSourceImageOffsetX = "455.0"
+	SpecSourceImageOffsetY = "360.0"
+	SpecSourceImageWidth = "66.0"
+	SpecSourceImageHeight = "66.0"
+	SpecSourceImageSpacingY = "153.0"
+	
+ />
