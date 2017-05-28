@@ -7,7 +7,26 @@ public static class ImageUtils {
 
 	private static Bitmap m_bmpScreenCache = null;
 
-    public static Bitmap TakeScreenShot () {
+	public static Bitmap TakeScreenShot(int screenLeft, int screenTop, int width, int height) {
+		//bmps have to be Disposed or we run out of GDI resoureces, so we try and cache the previous one if possible.
+		if(m_bmpScreenCache == null)
+			m_bmpScreenCache = new Bitmap(width, height);
+		else if(m_bmpScreenCache.Width != width || m_bmpScreenCache.Height != height)
+		{
+			m_bmpScreenCache.Dispose();
+			m_bmpScreenCache = new Bitmap(width, height);
+		}
+
+		using(Graphics g = Graphics.FromImage(m_bmpScreenCache))
+		{
+			g.CopyFromScreen(screenLeft, screenTop, 0, 0, m_bmpScreenCache.Size);
+		}
+
+		// remember, this Bitmap needs to be Dispose()'d!
+		return m_bmpScreenCache;
+	}
+
+	public static Bitmap TakeScreenShot () {
         int screenLeft   = SystemInformation.VirtualScreen.Left;
         int screenTop    = SystemInformation.VirtualScreen.Top;
         int screenWidth  = SystemInformation.VirtualScreen.Width;

@@ -94,7 +94,25 @@ namespace Gw2BuildHelper {
 				return;
             }
 
-            var bmpScreenCapture = ImageUtils.TakeScreenShot();
+			IntPtr hwnd = Win32.FindWindow("ArenaNet_Dx_Window_Class", null);
+
+			if(hwnd == null || hwnd == IntPtr.Zero)
+			{
+				m_Overlay.Hide();
+				return;
+			}
+
+			Win32.RECT rect;
+			if(!Win32.GetWindowRect(hwnd, out rect))
+			{
+				m_Overlay.Hide();
+				return;
+			}
+
+			m_Overlay.SetSize(rect);
+
+
+			var bmpScreenCapture = ImageUtils.TakeScreenShot(rect.Left, rect.Top, rect.Right - rect.Left, rect.Bottom - rect.Top);
 
             if (bmpScreenCapture == null) {
 				m_Overlay.Hide();

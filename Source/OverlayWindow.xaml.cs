@@ -1,17 +1,7 @@
 using MumbleLink_CSharp_GW2;
-using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 namespace Gw2BuildHelper {
@@ -22,8 +12,9 @@ namespace Gw2BuildHelper {
 
 
         public InterfaceSize hp;
+		private System.Windows.Point mMousePos;
 
-        public OverlayWindow () {
+		public OverlayWindow () {
             InitializeComponent();
             hp = InterfaceSize.LoadInterfaceSize();
             
@@ -33,7 +24,14 @@ namespace Gw2BuildHelper {
             Height = System.Windows.Forms.SystemInformation.VirtualScreen.Height;
         }
 
-        public void ShowScreenHelpers (Bitmap bmpScreenCapture, System.Drawing.Point p) {
+		public void SetSize(Win32.RECT rect) {
+			Left = rect.Left;
+			Top = rect.Top;
+			Width = rect.Right - rect.Left;
+			Height = rect.Bottom - rect.Top;
+		}
+
+		public void ShowScreenHelpers (Bitmap bmpScreenCapture, System.Drawing.Point p) {
 
             int rectCount = 0;
             int circleCount = 0;
@@ -94,8 +92,8 @@ namespace Gw2BuildHelper {
                     ////
 
                     var r = new System.Drawing.Rectangle((int)rectangle.Margin.Left, (int)rectangle.Margin.Top, hp.SpecDropDownMouseOverSizeX, (int)rectangle.Height);
-                    var mouse = System.Windows.Forms.Control.MousePosition;
-                    if (r.Contains(mouse)) {
+
+					if (r.Contains((int)mMousePos.X, (int)mMousePos.Y)) {
                         if (circles.Children.Count <= circleCount)
                             circles.Children.Add(CreateCircle());
 
@@ -119,7 +117,12 @@ namespace Gw2BuildHelper {
                 circles.Children.RemoveAt(circles.Children.Count - 1);
         }
 
-        private bool IsUsingCorrectSpec (Bitmap bmpScreenCapture, System.Drawing.Point p, int specIndex) {
+		private System.Windows.Point GetMousePosition() {
+			System.Drawing.Point point = System.Windows.Forms.Control.MousePosition;
+			return new System.Windows.Point(point.X, point.Y);
+		}
+
+		private bool IsUsingCorrectSpec (Bitmap bmpScreenCapture, System.Drawing.Point p, int specIndex) {
             float x = hp.SpecSourceImageOffsetX;
             float y = hp.SpecSourceImageOffsetY + specIndex * hp.SpecSourceImageSpacingY;
 
@@ -232,6 +235,9 @@ namespace Gw2BuildHelper {
             return drawnRectangles;
         }
 
-
-    }
+		private void Window_MouseMove(object sender, MouseEventArgs e)
+		{
+			mMousePos = e.GetPosition(this);
+		}
+	}
 }

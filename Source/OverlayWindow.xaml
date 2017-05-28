@@ -8,9 +8,10 @@
         Background="Transparent"
         WindowStyle="None"
         Topmost="True"
-        AllowsTransparency="True"
+        AllowsTransparency="True" MouseMove="Window_MouseMove"
         >
     <Grid>
+        <Border x:Name="border" BorderBrush="Red" BorderThickness="1" Visibility="Hidden" />
         <Grid x:Name="circles"></Grid>
         <Grid x:Name="rectangles"></Grid>
         <Label x:Name="lblFinding" Content="Searching for Hero Panel..." Foreground="Red" HorizontalAlignment="Center" Margin="0,0,0,100" VerticalAlignment="Bottom" Visibility="Hidden"/>
