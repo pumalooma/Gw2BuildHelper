@@ -12,13 +12,13 @@ namespace MumbleLink_CSharp_GW2
         public GW2Profession Profession;
         public GW2Race Race;
         public int MapId;
-        public int WorldId;
+        public long WorldId;
         public int TeamColorId;
         public Boolean IsCommander;
         public float Fov;
 
         [JsonConstructor]
-        public GW2Identity(string name, GW2Profession profession, GW2Race race, int map_id, int world_id, int team_color_id, bool commander, float fov)
+        public GW2Identity(string name, GW2Profession profession, GW2Race race, int map_id, long world_id, int team_color_id, bool commander, float fov)
         {
             Name = name;
             Profession = profession;
