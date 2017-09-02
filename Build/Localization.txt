@@ -6,6 +6,7 @@
 		<Specialization name="Water" />
 		<Specialization name="Arcane" />
 		<Specialization name="Temptest" />
+		<Specialization name="Weaver" />
 	</Profession>
 	<Profession name="Engineer">
 		<Specialization name="Explosives" />
@@ -14,6 +15,7 @@
 		<Specialization name="Alchemy" />
 		<Specialization name="Tools" />
 		<Specialization name="Scrapper" />
+		<Specialization name="Holosmith" />
 	</Profession>
 	<Profession name="Guardian">
 		<Specialization name="Zeal" />
@@ -22,6 +24,7 @@
 		<Specialization name="Honor" />
 		<Specialization name="Virtues" />
 		<Specialization name="Dragonhunter" />
+		<Specialization name="Firebrand" />
 	</Profession>
 	<Profession name="Mesmer">
 		<Specialization name="Domination" />
@@ -30,6 +33,7 @@
 		<Specialization name="Inspiration" />
 		<Specialization name="Illusions" />
 		<Specialization name="Chronomancer" />
+		<Specialization name="Mirage" />
 	</Profession>
 	<Profession name="Necromancer">
 		<Specialization name="Spite" />
@@ -38,6 +42,7 @@
 		<Specialization name="Blood Magic" />
 		<Specialization name="Soul Reaping" />
 		<Specialization name="Reaper" />
+		<Specialization name="Scourge" />
 	</Profession>
 	<Profession name="Ranger">
 		<Specialization name="Marksmanship" />
@@ -46,6 +51,7 @@
 		<Specialization name="Nature Magic" />
 		<Specialization name="Beastmastery" />
 		<Specialization name="Druid" />
+		<Specialization name="Soulbeast" />
 	</Profession>
 	<Profession name="Revenant">
 		<Specialization name="Corruption" />
@@ -54,6 +60,7 @@
 		<Specialization name="Invocation" />
 		<Specialization name="Devastation" />
 		<Specialization name="Herald" />
+		<Specialization name="Renegade" />
 	</Profession>
 	<Profession name="Thief">
 		<Specialization name="Deadly Arts" />
@@ -62,6 +69,7 @@
 		<Specialization name="Acrobatics" />
 		<Specialization name="Trickery" />
 		<Specialization name="Daredevil" />
+		<Specialization name="Deadeye" />
 	</Profession>
 	<Profession name="Warrior">
 		<Specialization name="Strength" />
@@ -70,5 +78,6 @@
 		<Specialization name="Tactics" />
 		<Specialization name="Dicipline" />
 		<Specialization name="Berserker" />
+		<Specialization name="Spellbreaker" />
 	</Profession>
 </Localization>

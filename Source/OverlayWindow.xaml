@@ -8,7 +8,7 @@
         Background="Transparent"
         WindowStyle="None"
         Topmost="True"
-        AllowsTransparency="True" MouseMove="Window_MouseMove"
+        AllowsTransparency="True"
         >
     <Grid>
         <Border x:Name="border" BorderBrush="Red" BorderThickness="1" Visibility="Hidden" />

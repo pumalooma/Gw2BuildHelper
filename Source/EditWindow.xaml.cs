@@ -66,7 +66,7 @@ namespace Gw2BuildHelper {
             var profession = Localization.Instance.GetProfession(newClass);
             for (int index = 0; index < profession.Specializations.Length; ++index) {
                 var spec = profession.Specializations[index];
-                if (index + 1 < profession.Specializations.Length) {
+                if (index + 2 < profession.Specializations.Length) {
                     cmbSpec1.Items.Add(spec.name);
                     cmbSpec2.Items.Add(spec.name);
                 }

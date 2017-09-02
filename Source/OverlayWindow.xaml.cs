@@ -12,7 +12,7 @@ namespace Gw2BuildHelper {
 
 
         public InterfaceSize hp;
-		private System.Windows.Point mMousePos;
+		//private System.Windows.Point mMousePos;
 
 		public OverlayWindow () {
             InitializeComponent();
@@ -93,7 +93,9 @@ namespace Gw2BuildHelper {
 
                     var r = new System.Drawing.Rectangle((int)rectangle.Margin.Left, (int)rectangle.Margin.Top, hp.SpecDropDownMouseOverSizeX, (int)rectangle.Height);
 
-					if (r.Contains((int)mMousePos.X, (int)mMousePos.Y)) {
+					var mousePos = Win32.GetMousePosition();
+
+					if (r.Contains((int)mousePos.X, (int)mousePos.Y)) {
                         if (circles.Children.Count <= circleCount)
                             circles.Children.Add(CreateCircle());
 
@@ -129,11 +131,22 @@ namespace Gw2BuildHelper {
             var rect = new RectangleF((float)p.X + x - 5.0f, (float)p.Y + y - 5.0f, hp.SpecSourceImageWidth + 10.0f, hp.SpecSourceImageHeight + 10.0f);
 
             bool ret = false;
+			bool debug = false;
 
-            if (MainWindow.instance.m_bmpSpecializations[specIndex] != null) {
+#if DEBUG
+			debug = Win32.IsKeyDown((int)VirtualKeyStates.VK_LCONTROL)
+				&& Win32.IsKeyDown((int)VirtualKeyStates.VK_SHIFT)
+				&& Win32.IsKeyDown((int)'X');
+#endif
+
+			if (debug || MainWindow.instance.m_bmpSpecializations[specIndex] != null) {
                 var screenCaptureRegion = bmpScreenCapture.Clone(rect, bmpScreenCapture.PixelFormat);
-                ret = ImageUtils.SearchBitmap(MainWindow.instance.m_bmpSpecializations[specIndex], screenCaptureRegion, 0.35).Width != 0;
-				//screenCaptureRegion.Save("dbg" + specIndex + ".bmp", System.Drawing.Imaging.ImageFormat.Bmp);
+
+				if(debug)
+					screenCaptureRegion.Save("dbg" + specIndex + ".bmp", System.Drawing.Imaging.ImageFormat.Bmp);
+				else
+					ret = ImageUtils.SearchBitmap(MainWindow.instance.m_bmpSpecializations[specIndex], screenCaptureRegion, 0.35).Width != 0;
+				
                 screenCaptureRegion.Dispose();
             }
 
@@ -234,10 +247,10 @@ namespace Gw2BuildHelper {
 
             return drawnRectangles;
         }
-
-		private void Window_MouseMove(object sender, MouseEventArgs e)
+		
+		/*private void Window_MouseMove(object sender, MouseEventArgs e)
 		{
 			mMousePos = e.GetPosition(this);
-		}
+		}*/
 	}
 }

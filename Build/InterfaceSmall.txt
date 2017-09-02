@@ -14,7 +14,7 @@
 	SpecDropDownWidth = "25.0"
 	SpecDropDownHeight = "123.0"
 	SpecDropDownSpacingY = "124.0"
-	SpecDropDownMouseOverSizeX = "115"
+	SpecDropDownMouseOverSizeX = "73"
 	
 	SpecCorrectChoiceOffsetX = "300.0"
 	SpecCorrectChoiceOffsetY = "261.0"
